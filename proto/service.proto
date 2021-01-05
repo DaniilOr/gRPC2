@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package agrigator;
+option go_package = "pkg/server";
+
+import "google/protobuf/timestamp.proto";
+
+service agrigatorService{
+  rpc Get(GetRequest) returns (stream GetResponse);
+}
+
+message GetRequest{
+  google.protobuf.Timestamp date=1;
+  string from=2;
+  string to=3;
+}
+
+message GetResponse{
+  repeated Flight items=1;
+}
+
+message Flight{
+  int64 it=1;
+  google.protobuf.Timestamp depTime=2;
+  int64 duration=3;
+  int64 cost=4;
+}

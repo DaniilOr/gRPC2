@@ -1,0 +1,1 @@
+INSERT INTO flights VALUES (1, 'Moscow', 'Omsk', 10800, 550000, '2021-09-28')

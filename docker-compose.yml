@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  flights1:
+    image: library/postgres:13-alpine
+    ports:
+    - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_USER=app
+      - POSTGRES_DB=flights1
+    volumes:
+    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+  flights2:
+      image: library/postgres:13-alpine
+      ports:
+      - 5433:5432
+      environment:
+        - POSTGRES_PASSWORD=pass
+        - POSTGRES_USER=app
+        - POSTGRES_DB=flights2
+      volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+  flights3:
+      image: library/postgres:13-alpine
+      ports:
+      - 5434:5432
+      environment:
+        - POSTGRES_PASSWORD=pass
+        - POSTGRES_USER=app
+        - POSTGRES_DB=flights3
+      volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
